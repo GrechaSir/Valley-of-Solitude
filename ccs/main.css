@@ -61,7 +61,6 @@ body {
     position: absolute;
     background-size: cover;
     background-position: center;
-    will-change: transform;
     transition: var(--transition);
     z-index: 2;                    /*убирает слой за другой слой*/
 } 
