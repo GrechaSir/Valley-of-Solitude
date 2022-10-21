@@ -69,15 +69,18 @@ body {
 .layers_base {
     transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);  /*координатные оси по которым скроллим*/
     transition: var(--transition);
+    will-change: transform;
     z-index: 0;
 }
 
 .layers_middle {
     transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
+    will-change: transform;
 }
 
 .layers_front {
     transform: translate3d(0, calc(var(--scrollTop) / 6), 0);
+    will-change: transform;
 }
 
 .layer-header {
@@ -94,6 +97,7 @@ body {
     font-size: calc(var(--index) * 3);
     font-weight: 900;
     letter-spacing: calc(var(--index) / 2.25);
+    will-change: transform;
     margin-top: calc(var(--index) * 2.25);
     margin-bottom: calc(var(--index) * 5);
     margin-left: calc(var(--index) * 41);
@@ -106,6 +110,7 @@ body {
     font-size: calc(var(--index) * 2);
     font-weight: 900;
     letter-spacing: calc(var(--index) / 3.25);
+    will-change: transform;
     margin-top: calc(var(--index) / 4.1);
     margin-bottom: calc(var(--index) * 2);
     margin-right: calc(var(--index) * 12);
@@ -124,6 +129,7 @@ body {
     align-items: center;
     position: relative;
     text-align: center;
+    will-change: transform;
 }
 
 .main-article_header {
@@ -146,6 +152,7 @@ body {
     transform: var(--main_article-transform);
     transition: var(--transition);
     margin-bottom: calc(var(--index) * 5);
+    will-change: transform;
 }
 
 .content {
@@ -157,4 +164,5 @@ body {
     bottom: calc(var(--index) * 1);
     font-size: calc(var(--index) * 1.5);
     margin-left: 500px;
+    will-change: transform;
 }
