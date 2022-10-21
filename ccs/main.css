@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {   /*определются переменные*/
+    --index: calc(1vw + 1vh);     /*расчет размера*/
+    --transition: transform .75s cubic-bezier(.075, 0.5, 0, 1);
+}
+
+@font-face {
+    font-family: nature;
+    src: url(../fonts/Nature.ttf);
+}
+
+@font-face {
+    font-family: horror;
+    src: url(../fonts/The-Bash-Singing-SlashyFont.ttf);
+    font-weight: 900;
+}
+
+body {
+    background-color: #010101;
+    color: #ffff;
+    font-family: horror, sans-serif;
+    line-height: 1.55;
+}
+
+.main-header {
+    position: relative; /*посмотреть*/
+    height: 100%;
+}
+
+.main-header::after {
+    content: '';
+    position:absolute;
+    z-index: 100;
+    width: 100%;
+    height: calc(var(--index) * 10);
+    background-image: url(../img/Line2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: calc(var(--index) * (-5));
+}
+
+.layers {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    position:relative;
+}
+
+.layer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+    transition: var(--transition);
+    z-index: 2;                    /*убирает слой за другой слой*/
+} 
+
+.layers_base {
+    transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);  /*координатные оси по которым скроллим*/
+    transition: var(--transition);
+    z-index: 0;
+}
+
+.layers_middle {
+    transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
+}
+
+.layers_front {
+    transform: translate3d(0, calc(var(--scrollTop) / 6), 0);
+}
+
+.layer-header {
+    z-index: 1;
+    transform: translate3d(0, calc(var(--scrollTop) * 0.7), 0);
+    transition: var(--transition);
+    will-change: transform;
+    text-transform: capitalize;
+    font-weight: 1000;
+    margin-bottom: calc(var(--index) * 10);
+}
+
+.layers_caption {
+    font-size: calc(var(--index) * 3);
+    font-weight: 900;
+    letter-spacing: calc(var(--index) / 2.25);
+    margin-top: calc(var(--index) * 2.25);
+    margin-bottom: calc(var(--index) * 5);
+    margin-left: calc(var(--index) * 41);
+    font-family: nature, sans-serif;
+    color: beige;
+}
+
+
+.layers_tittle {
+    font-size: calc(var(--index) * 2);
+    font-weight: 900;
+    letter-spacing: calc(var(--index) / 3.25);
+    margin-top: calc(var(--index) / 4.1);
+    margin-bottom: calc(var(--index) * 2);
+    margin-right: calc(var(--index) * 12);
+    font-family: nature, sans-serif;
+    color:rgb(67, 50, 11) 
+}
+
+.main-article {
+    --main_article-transform: translate3d(0, calc(var(--scrollTop) / 9), 0);
+    min-height: 150vh;
+    background-size: cover;
+    background-color: center;
+    color: rgb(151, 15, 15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+.main-article_header {
+    text-transform: uppercase;
+    font-size: calc(var(--index) * 2.5);
+    letter-spacing: calc(var(--index) / 7.5);
+    margin-bottom: calc(var(--index) * 25);
+    margin-top: calc(var(--index) * 10);
+    color:rgb(244, 209, 209);
+    transform: var(--main_article-transform);
+    transition: var(--transition);
+    will-change: trasform;
+}
+
+.main-article_q {
+    text-transform:capitalize;
+    max-width: calc(var(--index) * 13);
+    font-size: calc(var(--index) * 2);
+    letter-spacing: calc(var(--index) / 7.5);
+    transform: var(--main_article-transform);
+    transition: var(--transition);
+    margin-bottom: calc(var(--index) * 5);
+}
+
+.content {
+    will-change: trasform;
+}
+
+.copy {
+    position: absolute;
+    bottom: calc(var(--index) * 1);
+    font-size: calc(var(--index) * 1.5);
+    margin-left: 500px;
+}
